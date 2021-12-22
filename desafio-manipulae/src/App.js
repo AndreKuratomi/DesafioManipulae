@@ -1,7 +1,12 @@
 import "./App.css";
+import AllRoutes from "./routes";
 
 function App() {
-  return <h1>Desafio Manipulaê</h1>;
+  return (
+    <>
+      <AllRoutes />
+    </>
+  );
 }
 
 export default App;
