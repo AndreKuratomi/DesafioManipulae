@@ -1,14 +1,14 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
-import { musicsReducer } from "./modules/musics/reducer";
-import { albunsReducer } from "./modules/albuns/reducer";
-import { artistsReducer } from "./modules/artists/reducer";
+import { musicReducer } from "./modules/musics/reducer";
+import { albunReducer } from "./modules/albuns/reducer";
+import { artistReducer } from "./modules/artists/reducer";
 
 const reducers = combineReducers({
-  musics: musicsReducer,
-  albuns: albunsReducer,
-  artists: artistsReducer,
+  musics: musicReducer,
+  albuns: albunReducer,
+  artists: artistReducer,
 });
 
 const store = createStore(reducers, applyMiddleware(thunk));
