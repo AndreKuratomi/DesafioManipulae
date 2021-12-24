@@ -28,15 +28,15 @@ const SearchForm = () => {
     if (input === "") {
         setEmpty(true)
     } else {
-        // if data.select === Música {
-            // dispatch(addMusicaThunk(input, setError))
-        // }
-            // if data.select === Álbum {
-            // dispatch(addMusicaThunk(input, setError))
-        // }
-            // if data.select === Artist {
-            // dispatch(addMusicaThunk(input, setError))
-        // }
+      if (data.select === Música) {
+        dispatch(findMusicThunk(input, setError))
+      }
+      if (data.select === Álbum) {
+        dispatch(findAlbumThunk(input, setError))
+      }
+      if (data.select === Artist) {
+        dispatch(findArtistThunk(input, setError))
+      }
     }
     console.log(data)
   }
@@ -58,3 +58,5 @@ const SearchForm = () => {
     </>
   );
 };
+
+export default SearchForm
