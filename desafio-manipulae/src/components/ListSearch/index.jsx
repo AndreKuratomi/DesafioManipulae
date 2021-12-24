@@ -1,9 +1,9 @@
 const ListSearch = () => {
   return music ? (
     <ul>
-      {musics.map((music, index) => {
-        <li key={index}>{music}</li>;
-      })}
+      {musics.map((music, index) => (
+        <li key={index}>{music}</li>
+      ))}
     </ul>
   ) : artists ? (
     <ul>
