@@ -1,15 +1,13 @@
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
-import { Link, useNavigate } from "react-router-dom";
-import api from "../../services/api";
+
+import { useState } from "react";
 
 const SearchForm = () => {
-
-  const [] = useState("")
-  const [input, setInput] = useState("")
-  const [empty, setEmpty] = useState(false)
-  const [error, setError] = useState(false)
+  const [input, setInput] = useState("");
+  const [empty, setEmpty] = useState(false);
+  const [error, setError] = useState(false);
 
   const formSchema = yup.object().shape({
     name: yup.string().required("Preenchimento obrigatório!"),
@@ -26,37 +24,38 @@ const SearchForm = () => {
 
   const onSubmitFunction = (data) => {
     if (input === "") {
-        setEmpty(true)
+      setEmpty(true);
     } else {
-      if (data.select === Música) {
-        dispatch(findMusicThunk(input, setError))
+      if (data.select === "Música") {
+        dispatch(findMusicThunk(input, setError));
       }
-      if (data.select === Álbum) {
-        dispatch(findAlbumThunk(input, setError))
+      if (data.select === "Álbum") {
+        dispatch(findAlbumThunk(input, setError));
       }
-      if (data.select === Artist) {
-        dispatch(findArtistThunk(input, setError))
+      if (data.select === "Artist") {
+        dispatch(findArtistThunk(input, setError));
       }
     }
-    console.log(data)
-  }
+    console.log(data);
+  };
 
   return (
     <>
-        <form onSubmit={handleSubmit(onSubmitFunction)}>
-            <input placeholder="Buscar por..." {...register("name")}/>
-            {errors.name && {errors.name.message}}
-            <select>
-                <option value="Música">Música</option>
-                <option value="Álbum">Álbum</option>
-                <option value="Artista">Artista</option>
-            </select>
-            <button type="submit">Buscar</button>
-        </form>
-        {empty && <Error>Nada digitado no input!</Error>}
-        {empty && <Error>Nada encontrado!</Error>}
+      <form onSubmit={handleSubmit(onSubmitFunction)}>
+        <input placeholder="Buscar por..." {...register("name")} />
+        {errors.name && <Error>{errors.name.message}</Error>}
+        <select {...register("select")}>
+          {errors.name && <Error>{errors.name.message}</Error>}
+          <option value="Música">Música</option>
+          <option value="Álbum">Álbum</option>
+          <option value="Artista">Artista</option>
+        </select>
+        <button type="submit">Buscar</button>
+      </form>
+      {empty && <Error>Nada digitado no input!</Error>}
+      {error && <Error>Nada encontrado!</Error>}
     </>
   );
 };
 
-export default SearchForm
+export default SearchForm;
