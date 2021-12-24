@@ -4,6 +4,12 @@ import { yupResolver } from "@hookform/resolvers";
 
 import { useState } from "react";
 
+import { useDispatch } from "react-redux";
+
+import { findMusicThunk } from "../../store/modules/musics/thunks";
+import { findAlbumThunk } from "../../store/modules/albuns/thunks";
+import { findArtistThunk } from "../../store/modules/artists/thunks";
+
 const SearchForm = () => {
   const [input, setInput] = useState("");
   const [empty, setEmpty] = useState(false);
@@ -21,6 +27,8 @@ const SearchForm = () => {
   } = useForm({
     resolver: yupResolver(formSchema),
   });
+
+  const dispatch = useDispatch();
 
   const onSubmitFunction = (data) => {
     if (input === "") {
