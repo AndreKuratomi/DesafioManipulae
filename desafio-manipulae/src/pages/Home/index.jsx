@@ -4,7 +4,7 @@ import ListSearch from "../../components/ListSearch";
 const Home = () => {
   return (
     <>
-      <h1>Lorem ipsum dolor</h1>
+      <h1>Deezer</h1>
       <SearchForm />
       <ListSearch />
     </>
