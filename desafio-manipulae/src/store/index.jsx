@@ -1,9 +1,9 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
-import { musicReducer } from "./modules/musics/reducer";
-import { albumReducer } from "./modules/albuns/reducer";
-import { artistReducer } from "./modules/artists/reducer";
+import { musicReducer } from "./modules/musics/reducers";
+import { albumReducer } from "./modules/albuns/reducers";
+import { artistReducer } from "./modules/artists/reducers";
 
 const reducers = combineReducers({
   musics: musicReducer,
