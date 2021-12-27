@@ -1,4 +1,4 @@
-import { api } from "../../../services/api";
+import api from "../../../services/api";
 import { findAlbum } from "./actions";
 
 export const findAlbumThunk = (input, setError) => (dispatch) => {
