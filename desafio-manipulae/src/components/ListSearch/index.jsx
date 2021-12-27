@@ -17,9 +17,16 @@ const ListSearch = () => {
         <li key={index}>{artist}</li>
       ))}
     </ul>
-  ) : (
+  ) : albuns ? (
     <ul>
       {albuns.map((album, index) => (
+        <li key={index}>{album}</li>
+      ))}
+    </ul>
+  ) : (
+    // os favorritos do momento
+    <ul>
+      {tops.map((album, index) => (
         <li key={index}>{album}</li>
       ))}
     </ul>
