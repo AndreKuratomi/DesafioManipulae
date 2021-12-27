@@ -12,7 +12,6 @@ import { Error } from "./styles";
 
 const SearchForm = () => {
   const [input, setInput] = useState("");
-  const [empty, setEmpty] = useState(false);
   const [error, setError] = useState(false);
 
   const formSchema = yup.object().shape({
@@ -31,37 +30,37 @@ const SearchForm = () => {
   const dispatch = useDispatch();
 
   const onSubmitFunction = (data) => {
-    // input.toUpperCase();
-    if (input === "") {
-      setEmpty(true);
-    } else {
-      if (data.select === "Música") {
-        dispatch(findMusicThunk(input, setError));
-      }
-      if (data.select === "Álbum") {
-        dispatch(findAlbumThunk(input, setError));
-      }
-      if (data.select === "Artist") {
-        dispatch(findArtistThunk(input, setError));
-      }
+    if (data.select === "Música") {
+      dispatch(findMusicThunk(input, setError));
     }
-    console.log(data);
+    if (data.select === "Álbum") {
+      dispatch(findAlbumThunk(input, setError));
+    }
+    if (data.select === "Artist") {
+      dispatch(findArtistThunk(input, setError));
+    }
   };
 
   return (
     <>
       <form onSubmit={handleSubmit(onSubmitFunction)}>
-        <input placeholder="Buscar por..." {...register("name")} />
-        {errors.name && <Error>{errors.name.message}</Error>}
+        <input
+          value={input}
+          placeholder="Buscar por..."
+          {...register("name")}
+          onChange={(e) => setInput(e.target.value)}
+        />
+
         <select {...register("select")}>
-          {errors.name && <Error>{errors.name.message}</Error>}
           <option value="Música">Música</option>
           <option value="Álbum">Álbum</option>
           <option value="Artista">Artista</option>
         </select>
+
         <button type="submit">Buscar</button>
       </form>
-      {empty && <Error>Nada digitado no input!</Error>}
+
+      {errors.name && <Error>{errors.name.message}</Error>}
       {error && <Error>Nada encontrado!</Error>}
     </>
   );
