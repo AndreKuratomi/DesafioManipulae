@@ -50,13 +50,16 @@ const SearchForm = () => {
           {...register("name")}
           onChange={(e) => setInput(e.target.value)}
         />
+
         <select {...register("select")}>
           <option value="Música">Música</option>
           <option value="Álbum">Álbum</option>
           <option value="Artista">Artista</option>
         </select>
+
         <button type="submit">Buscar</button>
       </form>
+
       {errors.name && <Error>{errors.name.message}</Error>}
       {error && <Error>Nada encontrado!</Error>}
     </>
