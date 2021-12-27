@@ -3,7 +3,7 @@ import { findArtist } from "./actions";
 
 export const findArtistThunk = (input, setError) => (dispatch) => {
   api
-    .get(`/artist/${input}`)
+    .get(`/search?q=artist: "${input}"`)
     .then((response) => {
       const arr = response.data;
       dispatch(findArtist(arr));
