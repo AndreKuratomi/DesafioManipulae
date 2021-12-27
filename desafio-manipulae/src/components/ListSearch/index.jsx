@@ -24,7 +24,7 @@ const ListSearch = () => {
       ))}
     </ul>
   ) : (
-    // os favorritos do momento
+    // os favoritos do momento
     <ul>
       {tops.map((album, index) => (
         <li key={index}>{album}</li>

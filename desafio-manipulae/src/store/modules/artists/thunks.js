@@ -1,7 +1,7 @@
 import api from "../../../services/api";
 import { findArtist } from "./actions";
 
-import CardArtists from "../../../components/CardArtists";
+import Cards from "../../../components/Cards";
 
 export const findArtistThunk = (input, setError) => (dispatch) => {
   api
@@ -9,7 +9,7 @@ export const findArtistThunk = (input, setError) => (dispatch) => {
     .then((response) => {
       const arr = response.data;
       dispatch(
-        findArtist(arr.map((elt) => <CardArtists elt={elt} type="artists" />))
+        findArtist(arr.map((elt) => <Cards elt={elt} type="artists" />))
       );
       setError(false);
     })

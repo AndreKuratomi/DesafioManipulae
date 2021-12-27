@@ -1,7 +1,7 @@
 import api from "../../../services/api";
 import { findMusic } from "./actions";
 
-import CardMusics from "../../../components/CardMusics";
+import Cards from "../../../components/Cards";
 
 export const findMusicThunk = (input, setError) => (dispatch) => {
   api
@@ -10,9 +10,7 @@ export const findMusicThunk = (input, setError) => (dispatch) => {
       console.log(input);
       console.log(response);
       const arr = response.data;
-      dispatch(
-        findMusic(arr.map((elt) => <CardMusics elt={elt} type="musics" />))
-      );
+      dispatch(findMusic(arr.map((elt) => <Cards elt={elt} type="musics" />)));
       setError(false);
     })
     .catch((e) => setError(true));
