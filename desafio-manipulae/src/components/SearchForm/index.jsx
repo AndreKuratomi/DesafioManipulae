@@ -3,12 +3,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { useState } from "react";
-
 import { useDispatch } from "react-redux";
-
 import { findMusicThunk } from "../../store/modules/musics/thunks";
 import { findAlbumThunk } from "../../store/modules/albuns/thunks";
 import { findArtistThunk } from "../../store/modules/artists/thunks";
+
+import { Error } from "./styles";
 
 const SearchForm = () => {
   const [input, setInput] = useState("");
@@ -31,6 +31,7 @@ const SearchForm = () => {
   const dispatch = useDispatch();
 
   const onSubmitFunction = (data) => {
+    // input.toUpperCase();
     if (input === "") {
       setEmpty(true);
     } else {
