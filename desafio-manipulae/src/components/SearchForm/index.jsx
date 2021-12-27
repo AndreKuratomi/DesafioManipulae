@@ -46,13 +46,11 @@ const SearchForm = () => {
       <form onSubmit={handleSubmit(onSubmitFunction)}>
         <input
           value={input}
-          // input
           placeholder="Buscar por..."
           {...register("name")}
           onChange={(e) => setInput(e.target.value)}
         />
         <select {...register("select")}>
-          {errors.name && <Error>{errors.name.message}</Error>}
           <option value="Música">Música</option>
           <option value="Álbum">Álbum</option>
           <option value="Artista">Artista</option>
