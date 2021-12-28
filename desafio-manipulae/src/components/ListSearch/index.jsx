@@ -1,36 +1,39 @@
 import { useSelector } from "react-redux";
 
+import { UList } from "./styles";
+
 const ListSearch = () => {
   const { musics } = useSelector((state) => state);
   const { albuns } = useSelector((state) => state);
   const { artists } = useSelector((state) => state);
 
   return musics ? (
-    <ul>
+    <UList>
       {musics.map((music, index) => (
         <li key={index}>{music}</li>
       ))}
-    </ul>
+    </UList>
   ) : artists ? (
-    <ul>
+    <UList>
       {artists.map((artist, index) => (
         <li key={index}>{artist}</li>
       ))}
-    </ul>
-  ) : albuns ? (
-    <ul>
+    </UList>
+  ) : (
+    // albuns ?
+    <UList>
       {albuns.map((album, index) => (
         <li key={index}>{album}</li>
       ))}
-    </ul>
-  ) : (
-    // os favoritos do momento
-    <ul>
-      {tops.map((album, index) => (
-        <li key={index}>{album}</li>
-      ))}
-    </ul>
+    </UList>
   );
+  //  : (
+  // <UList>
+  //   {tops.map((album, index) => (
+  //     <li key={index}>{album}</li>
+  //   ))}
+  // </UList>
+  // );
 };
 
 export default ListSearch;
