@@ -11,7 +11,7 @@ const Home = () => {
       <h1>Deezer</h1>
       <SearchForm />
       <ListSearch />
-      <button onClick={() => nav.push("/favoritos")}>Ir para Favoritos</button>
+      <button onClick={() => nav("/favorites")}>Ir para Favoritos</button>
     </>
   );
 };
