@@ -8,8 +8,8 @@ const Favorites = () => {
   return (
     <>
       <h1>Favoritos</h1>
-      <ListFavorites />
-      <button onClick={() => nav.push("/")}>Voltar para home</button>
+      {/* <ListFavorites /> */}
+      <button onClick={() => nav("/")}>Voltar para home</button>
     </>
   );
 };
